@@ -42,7 +42,7 @@ db.connect()
 function capitalizeName(str) {
     if (!str) return "";
     return str
-        .toLowerCase
+        .toLowerCase()
         .split(" ")
         .map(str => str.charAt(0).toUpperCase() + str.slice(1))
         .join(" ");
