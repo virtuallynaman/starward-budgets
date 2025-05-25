@@ -16,10 +16,10 @@ function BudgetPage() {
             {budget ? (
                 <>
                     <div className="component-wrapper">
-                        <h1 className="section-header">{budget.name} overview</h1>
+                        <h1 className="section-header">{budget.name} Overview</h1>
                         <BudgetList budget={budget} showDelete={true} />
                         <AddExpenseForm showOption={false} budgetId={budget.id} />
-                        <h1 className="section-header">{budget.name} expenses</h1>
+                        <h1 className="section-header">{budget.name} Expenses</h1>
                         {matchingExpenses.length > 0 ? (
                             <ExpensesList expenses={matchingExpenses} showBudgetName={false}/>
                         ) : (
