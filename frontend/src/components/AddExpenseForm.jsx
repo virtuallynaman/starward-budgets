@@ -41,8 +41,8 @@ function AddExpenseForm({ showOption, budgetId }) {
 
     return (
         <div className='form-wrapper'>
-            <h2 className='h3'>Add New {showOption && budgets?.length < 2 && <span className='accent'>{budgets[0]?.name}</span>} Expense</h2>
-            <form onSubmit={handleSubmit} className="form">
+            <h2>Add New {showOption && budgets?.length < 2 && <span className='accent'>{budgets[0]?.name}</span>} Expense</h2>
+            <form onSubmit={handleSubmit} className="form-group">
                 <label htmlFor="expenseName">Expense Name</label>
                 <input
                     id='expenseName'
@@ -56,18 +56,18 @@ function AddExpenseForm({ showOption, budgetId }) {
                 <label htmlFor="expenseAmount">Amount</label>
                 <input
                     id='expenseAmount'
-                    type="number"
-                    onChange={(e) => setExpenseAmount(e.target.value)}
-                    value={expenseAmount}
+                    type="text"
+                    onChange={(e) => setExpenseAmount(e.target.value.replace(/[^0-9]/g, '')
+                    )}
+                    value={expenseAmount ? `₹ ${expenseAmount}` : ''}
                     className='amount-input'
                     placeholder='e.g., ₹100'
                     required
                 />
-                <FaRupeeSign className='rupee-symbol' />
 
-                <div className="datepicker-container">
+                <div className="form-options-container">
                     {showOption && budgets.length > 1 &&
-                        <div className='form'>
+                        <div className='expense-form-options'>
                             <label htmlFor="budgetName">Select Budget</label>
                             <select
                                 name="budgetName"
@@ -82,9 +82,19 @@ function AddExpenseForm({ showOption, budgetId }) {
                             </select>
                         </div>
                     }
-                    <div className='form'>
+                    <div className='expense-form-options'>
                         <label htmlFor="date-picker">Date</label>
-                        <DatePicker dateFormat="dd MMM yyyy" selected={date} onChange={(newDate) => setDate(format(newDate, "dd MMM y"))} />
+                        <DatePicker
+                            dateFormat="dd MMM yyyy"
+                            selected={date}
+                            onChange={(newDate) => {
+                                if (!newDate) {
+                                    setDate(date);
+                                } else {
+                                    setDate(format(newDate, "dd MMM y"))
+                                }
+                            }}
+                        />
                     </div>
                 </div>
             </form>
