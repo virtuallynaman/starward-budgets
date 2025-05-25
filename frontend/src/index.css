@@ -1,0 +1,610 @@
+/* Reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #753cba;
+  --light-accent: #753cba2c;
+  --bg: #121212;
+  --card-bg: #212121;
+  --text-color: rgb(233, 233, 233);
+  --budget-color: #753cba;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--bg);
+  color: var(--text-color);
+  color-scheme: dark;
+}
+
+/* Default styles */
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  font: inherit;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  height: 100%;
+}
+
+:is(input, select):focus {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+select option {
+  background-color: var(--card-bg);
+}
+
+/* Button styles */
+.btn {
+  width: max-content;
+  font-size: larger;
+  background-color: var(--accent);
+  padding: 12px;
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Loading component */
+.loader {
+  width: 25px;
+  height: 25px;
+  border: 3px solid #DADADB;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  margin-right: 7px;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 0.8s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 25px;
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1550px;
+  margin-inline: auto;
+  padding: 16px;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 40px;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar-logo-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 32px;
+  width: max-content;
+  color: var(--text-color);
+}
+
+.logo-img {
+  height: 50px;
+  width: 50px;
+}
+
+/* Main layout */
+main {
+  max-width: 1500px;
+  width: 100%;
+  margin: auto;
+  display: grid;
+}
+
+/* Dashboard layout */
+.dashboard {
+  display: grid;
+  gap: 32px;
+  width: 100%;
+}
+
+.component-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 32px;
+}
+
+/* Form */
+.form-wrapper {
+  flex: 1 1 48%;
+  max-width: 800px;
+  position: relative;
+  font-size: larger;
+  display: grid;
+  gap: 18px;
+  padding: 26px 30px 30px;
+  border-radius: 25px;
+  background-color: var(--bg);
+  box-shadow: 0.25em 0.3em 1em black;
+  border: 2px dashed var(--text-color);
+}
+
+.form-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0.55rem;
+  border: 2px dashed var(--text-color);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.form-group {
+  width: 100%;
+  display: grid;
+  gap: 12px;
+}
+
+.form-options-container {
+  display: flex;
+  gap: 30px;
+  margin: 5px 0;
+}
+
+.budget-form-options {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Checkbox styles */
+.checkbox-input {
+  height: 22px;
+  width: 22px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  vertical-align: middle;
+  color-scheme: dark;
+}
+
+/* Color picker */
+.selected-color {
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.color-picker-label {
+  cursor: pointer;
+}
+
+.circle-picker {
+  width: 200px !important;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 120px;
+  background-color: var(--card-bg);
+  padding: 12px 0 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+}
+
+/* Expense form options styles */
+.expense-form-options {
+  width: 50%;
+  height: fit-content;
+}
+
+.expense-form-options input,
+select {
+  margin-top: 10px;
+}
+
+/* Date picker */
+.react-datepicker {
+  background-color: var(--card-bg) !important;
+  border: none;
+  padding: 10px;
+}
+
+.react-datepicker__header {
+  background-color: var(--card-bg) !important;
+  border-bottom: none;
+}
+
+.react-datepicker__day {
+  color: var(--text-color) !important;
+  font-size: 16px;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: var(--accent) !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: var(--light-accent) !important;
+}
+
+.react-datepicker__current-month {
+  color: var(--text-color) !important;
+  font-size: 16px !important;
+  margin-bottom: 10px !important;
+}
+
+.react-datepicker__day-name {
+  color: var(--text-color) !important;
+  font-size: 16px;
+}
+
+/* Section headings */
+.section-header {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* Budget section*/
+.budgets-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* Budget cards */
+.budget {
+  font-size: 22px;
+  display: grid;
+  box-shadow: 0 0 0.5em black;
+  border-radius: 25px;
+  border: 3px solid var(--budget-color);
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--text-color);
+  background: var(--card-bg);
+  max-width: 600px;
+  flex: 1 1 32.2%;
+  gap: 16px;
+}
+
+.budget-btn {
+  width: fit-content;
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 16px;
+  font-size: 20px;
+  border: none;
+  text-decoration: none;
+  background-color: var(--budget-color);
+  cursor: pointer;
+}
+
+/* Progress bar styles */
+.progress-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-text:nth-of-type(1) :nth-child(1) {
+  color: var(--budget-color);
+}
+
+progress {
+  height: 16px;
+  width: 100%;
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #2f2f2f;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+progress[value]::-moz-progress-bar {
+  background-color: var(--budget-color);
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: var(--budget-color);
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Expense table component */
+table {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 0 0.2em black;
+  border-radius: 10px;
+}
+
+tr:nth-child(odd) {
+  background-color: var(--light-accent);
+}
+
+thead>tr:nth-child(odd) {
+  background-color: var(--bg);
+}
+
+th {
+  font-size: 22px;
+  padding: 16px;
+}
+
+td {
+  font-size: 20px;
+  padding: 8px;
+  text-align: center;
+}
+
+table a {
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--accent);
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+/* Expense loading */
+.expense-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+/* Footer styles */
+footer {
+  position: relative;
+  background: url("/wave.svg") no-repeat;
+  background-size: cover;
+  height: 350px;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.footer-links {
+  display: flex;
+  position: absolute;
+  bottom: 50px;
+  font-size: 24px;
+  gap: 30px;
+}
+
+.footer-links a {
+  text-decoration: none;
+}
+
+.copyright {
+  font-size: 16px;
+  position: absolute;
+  bottom: 15px;
+}
+
+/* Errors */
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 200px;
+}
+
+.error-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+  font-size: 26px;
+  text-align: center;
+}
+
+/* Login & Signup form */
+.auth-page {
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 70%;
+  z-index: -1;
+}
+
+.bg-darken-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Logo styles */
+.logo-header {
+  padding: 100px 0 50px;
+  font-size: 26px;
+  width: 50%;
+  color: var(--text-color);
+  position: absolute;
+  top: 300px;
+  left: 350px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Auth form styles */
+.auth-form {
+  width: 25%;
+  position: absolute;
+  right: 200px;
+  top: 250px;
+  padding: 50px 30px;
+  box-shadow: 0 0 5px #5f5e5e;
+  border-radius: 10px;
+  background: radial-gradient(circle at center, #6626b4 0%, #221238 100%);
+  box-shadow: inset 0 0 60px rgba(145, 145, 145, 0.1);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.auth-form.signup-form {
+  top: 200px;
+}
+
+.auth-form-header {
+  font-size: larger;
+  margin: 0 0 10px;
+  line-height: 40px;
+}
+
+.credentials-container {
+  position: relative;
+}
+
+input.credentials-input {
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin: 8px 0;
+  font-size: 20px;
+  background-color: #221238;
+}
+
+.credentials-action {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+/* Auth button styles */
+.auth-btn {
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-weight: 600;
+  padding: 10px;
+  width: 100%;
+  font-size: larger;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: all 0.2s ease-in;
+  user-select: none;
+}
+
+.auth-btn:hover {
+  background-color: #2212385e;
+}
+
+.auth-btn:hover .auth-btn-loader {
+  border: 3px solid var(--text-color);
+  border-bottom-color: #6626b4;
+}
+
+.auth-btn-on-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+}
+
+.auth-btn-loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--accent);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  margin-right: 7px;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 0.8s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.auth-hint {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin: 10px 0 0;
+  font-size: 20px;
+}
+
+a {
+  color: var(--text-color);
+}
+
+.auth-error {
+  font-size: smaller;
+  color: #ff2626;
+}
