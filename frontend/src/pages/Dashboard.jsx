@@ -6,12 +6,12 @@ import { useBudgets } from '../contexts/BudgetContext';
 import Error from './Error';
 
 function Dashboard() {
-  const { budgets, expenses, isLoading, loadingBudgets, loadingExpenses, error } = useBudgets();
+  const { budgets, expenses, isLoading, loadingBudgets, error } = useBudgets();
 
   return (
     <>
       {isLoading ? (
-        <div className="loading-component">
+        <div className="loading-container">
           <span className="loader"></span>
           Loading...
         </div>
@@ -26,16 +26,16 @@ function Dashboard() {
                 <AddExpenseForm showOption={true} budgetId={budgets[0].id} />
                 <h1 className='section-header'>Existing Budgets</h1>
                 {loadingBudgets ? (
-                  <div className="loading-component">
+                  <div className="loading-container">
                     <span className="loader"></span>
                     Loading...
                   </div>
                 ) : (
-                  <>
+                  <div className='budgets-container'>
                     {budgets.map((budget) => (
                       <BudgetList key={budget.id} budget={budget} showDelete={false} />
                     ))}
-                  </>
+                  </div>
                 )}
               </>
             }
