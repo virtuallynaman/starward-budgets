@@ -6,7 +6,7 @@ function ExpensesPage() {
     return (
         <>
             <div className="dashboard">
-                <h1 className="section-header">All expenses</h1>
+                <h1 className="section-header">All Expenses</h1>
                 <h3>Total : {expenses.length}</h3>
                 {expenses && expenses.length > 0 ? (
                     <ExpensesList expenses={expenses} showBudgetName={true} />
