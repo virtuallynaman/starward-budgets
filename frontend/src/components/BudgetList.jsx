@@ -26,10 +26,10 @@ function BudgetList({ budget, showDelete }) {
     }
 
     return (
-        <div className="budget">
+        <div className="budget" style={{ '--budget-color': color }}>
             <div className="progress-text">
                 <h3>{name}</h3>
-                <p>{formatCurrency(amount)} Budgeted</p>
+                <p>Total Budget: {formatCurrency(amount)}</p>
             </div>
             <progress max={amount} value={spent}>
             </progress>
@@ -39,17 +39,13 @@ function BudgetList({ budget, showDelete }) {
             </div>
 
             {showDelete ? (
-                <div className="budget-btn">
-                    <button onClick={handleDeleteBudget} className="btn">
-                        Delete budget
-                    </button>
-                </div>
+                <button onClick={handleDeleteBudget} className="budget-btn">
+                    Delete Budget
+                </button>
             ) : (
-                <div className="budget-btn">
-                    <Link to={`/budget/${id}`} className="btn">
-                        <span>View Details</span>
-                    </Link>
-                </div >
+                <Link to={`/budget/${id}`} className="budget-btn">
+                    <span>View Details</span>
+                </Link>
             )}
         </div >
     )
