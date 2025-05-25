@@ -13,7 +13,7 @@ function Navbar() {
             </NavLink>
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <h2 style={{ marginRight: '20px' }}>Welcome {user.name}</h2>
-                <button className='btn' onClick={() => logout()}>Log out</button>
+                <button className='btn' onClick={() => logout()}>Log Out</button>
             </div>
         </nav>
     )
