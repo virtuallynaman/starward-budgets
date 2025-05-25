@@ -66,14 +66,14 @@ function ExpensesList({ expenses, showBudgetName, showAllExpenseBtn }) {
                 </tbody>
                 {loadingExpenses &&
                     <div className="expense-loading-overlay">
-                        <div className="loading-component">
+                        <div className="loading-container">
                             <span className="loader"></span>
                             <p>Refreshing</p>
                         </div>
                     </div>
                 }
             </table>
-            {showAllExpenseBtn && <Link to="/expenses" className='btn '>View all expenses</Link>}
+            {showAllExpenseBtn && <Link to="/expenses" className='btn '>View All Expenses</Link>}
         </>
     )
 }
