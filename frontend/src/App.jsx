@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import Dashboard from "./pages/Dashboard"
 import Error from "./pages/Error"
-import MainLayout from "./layouts/RootLayout"
+import RootLayout from "./layouts/RootLayout"
 import ExpensesPage from "./pages/ExpensesPage";
 import BudgetPage from "./pages/BudgetPage";
 import Login from "./pages/Login";
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <ProtectedRoute><MainLayout /></ProtectedRoute>,
+    element: <ProtectedRoute><RootLayout /></ProtectedRoute>,
     errorElement: <Error />,
     children: [
       {
