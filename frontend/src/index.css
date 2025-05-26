@@ -295,8 +295,7 @@ select {
   text-decoration: none;
   color: var(--text-color);
   background: var(--card-bg);
-  max-width: 600px;
-  flex: 1 1 32.2%;
+  width: 484px;
   gap: 16px;
 }
 
