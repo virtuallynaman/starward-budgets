@@ -232,6 +232,9 @@ main {
 .expense-form-options input,
 select {
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Date picker */
@@ -465,7 +468,7 @@ footer {
   height: 100%;
   object-fit: cover;
   object-position: center 70%;
-  z-index: -1;
+  z-index: -1000;
 }
 
 .bg-darken-overlay {
@@ -475,26 +478,29 @@ footer {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
+  z-index: -100;
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 /* Logo styles */
 .logo-header {
   padding: 100px 0 50px;
   font-size: 26px;
-  width: 50%;
+  width: fit-content;
+  margin-right: 3em;
   color: var(--text-color);
-  position: absolute;
-  top: 300px;
-  left: 350px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 /* Auth form styles */
 .auth-form {
-  width: 25%;
-  position: absolute;
-  right: 200px;
-  top: 250px;
+  width: fit-content;
   padding: 50px 30px;
   box-shadow: 0 0 5px #5f5e5e;
   border-radius: 10px;
