@@ -47,8 +47,8 @@ function Login() {
     return (
         <div className="auth-page">
             <div className="bg-darken-overlay"></div>
-            <video autoPlay muted loop className="video-background">
-                <source src="/5466775-hd_1920_1080_25fps.mp4" type="video/mp4" />
+            <video autoPlay muted loop className="video-background" poster="fallback.jpg">
+                <source src="/bg-video.mp4" type="video/mp4" />
             </video>
             <div className="auth-container">
                 <div className="logo-header">

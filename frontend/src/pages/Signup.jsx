@@ -71,8 +71,8 @@ function Signup() {
     return (
         <div className="auth-page">
             <div className="bg-darken-overlay"></div>
-            <video autoPlay muted loop className="video-background">
-                <source src="/5466775-hd_1920_1080_25fps.mp4" type="video/mp4" />
+            <video autoPlay muted loop className="video-background" poster="fallback.jpg">
+                <source src="/bg-video.mp4" type="video/mp4" />
             </video>
             <div className="auth-container">
                 <div className="logo-header">
@@ -84,22 +84,28 @@ function Signup() {
                         <h1>Get Started Now</h1>
                         <p>Create an account</p>
                     </div>
-                    <input
-                        className="credentials-input"
-                        type="text"
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
-                        placeholder="Name"
-                        disabled={isLoading}
-                    />
-                    <input
-                        className="credentials-input"
-                        type="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                        placeholder="Email"
-                        disabled={isLoading}
-                    />
+                    <div>
+                        <input
+                            className="credentials-input"
+                            type="text"
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
+                            placeholder="Name"
+                            disabled={isLoading}
+                        />
+                    </div>
+
+                    <div>
+                        <input
+                            className="credentials-input"
+                            type="email"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            placeholder="Email"
+                            disabled={isLoading}
+                        />
+                    </div>
+
                     <div className="credentials-container">
                         <input
                             className="credentials-input"
@@ -131,13 +137,14 @@ function Signup() {
                         }
                     </div>
 
-                    {isLoading ?
-                        <button className="auth-btn" disabled>
-                            <span className="loader"></span>
-                            <span className="auth-btn-on-loading">Creating account</span>
-                        </button>
-                        :
-                        <button className="auth-btn">Create account</button>
+                    {
+                        isLoading ?
+                            <button className="auth-btn" disabled>
+                                <span className="loader"></span>
+                                <span className="auth-btn-on-loading">Creating account</span>
+                            </button>
+                            :
+                            <button className="auth-btn">Create account</button>
                     }
 
                     {error && <div className="auth-error">{error}</div>}
@@ -146,9 +153,9 @@ function Signup() {
                         <p>Already have an account?</p>
                         <Link to={"/login"}>Log in</Link>
                     </div>
-                </form>
-            </div>
-        </div>
+                </form >
+            </div >
+        </div >
     )
 }
 
